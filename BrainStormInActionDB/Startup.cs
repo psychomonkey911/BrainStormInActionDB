@@ -30,8 +30,11 @@ namespace BrainStormInActionDB
 
             string conn = Configuration.GetConnectionString("DevConnection");
 
-            services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer(b => b.MigrationsAssembly(conn)));
+            services.AddDbContext<ApplicationContext>(opts =>
+                opts.UseSqlServer(conn, options => options.MigrationsAssembly("BrainStormInActionDB")));
+            services.AddControllers();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

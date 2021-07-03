@@ -16,6 +16,7 @@ namespace BrainStormInActionDB.DataAccess.EntityConfigurations
             builder.Property(x => x.VideoId).HasColumnName(@"VideoId").HasColumnType("int").IsRequired().ValueGeneratedNever();
 
             // Foreign keys
+            builder.HasOne(a => a.Flow).WithMany(b => b.FlowsToVideos).HasForeignKey(c => c.FlowId).OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_FlowsToVideo_Flow");
             builder.HasOne(a => a.Video).WithMany(b => b.FlowsToVideos).HasForeignKey(c => c.VideoId).OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_FlowsToVideo_Video");
         }
     }

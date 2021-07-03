@@ -17,6 +17,7 @@ namespace BrainStormInActionDB.DataAccess.EntityConfigurations
             builder.Property(x => x.Priority).HasColumnName(@"Priority").HasColumnType("varchar(50)").IsRequired().IsUnicode(false).HasMaxLength(50).ValueGeneratedNever();
 
             // Foreign keys
+            builder.HasOne(a => a.Flow).WithMany(b => b.UsersToFlows).HasForeignKey(c => c.FlowId).OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_UsersToFlow_Flow");
             builder.HasOne(a => a.User).WithMany(b => b.UsersToFlows).HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_UsersToFlow_Users");
         }
     }

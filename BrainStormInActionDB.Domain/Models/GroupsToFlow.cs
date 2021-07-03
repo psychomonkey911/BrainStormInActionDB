@@ -13,6 +13,11 @@ namespace BrainStormInActionDB.Domain.Models
         // Foreign keys
 
         /// <summary>
+        /// Parent Flow pointed by [GroupsToFlow].([FlowId]) (FK_GroupsToFlow_Flow)
+        /// </summary>
+        public virtual Flow Flow { get; set; } // FK_GroupsToFlow_Flow
+
+        /// <summary>
         /// Parent Group pointed by [GroupsToFlow].([GroupId]) (FK_GroupsToFlow_Groups)
         /// </summary>
         public virtual Group Group { get; set; } // FK_GroupsToFlow_Groups

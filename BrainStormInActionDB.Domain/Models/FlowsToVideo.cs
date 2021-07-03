@@ -12,6 +12,11 @@ namespace BrainStormInActionDB.Domain.Models
         // Foreign keys
 
         /// <summary>
+        /// Parent Flow pointed by [FlowsToVideo].([FlowId]) (FK_FlowsToVideo_Flow)
+        /// </summary>
+        public virtual Flow Flow { get; set; } // FK_FlowsToVideo_Flow
+
+        /// <summary>
         /// Parent Video pointed by [FlowsToVideo].([VideoId]) (FK_FlowsToVideo_Video)
         /// </summary>
         public virtual Video Video { get; set; } // FK_FlowsToVideo_Video
