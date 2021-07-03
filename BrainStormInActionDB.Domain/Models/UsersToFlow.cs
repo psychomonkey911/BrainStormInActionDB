@@ -15,11 +15,13 @@ namespace BrainStormInActionDB.Domain.Models
         /// <summary>
         /// Parent Flow pointed by [UsersToFlow].([FlowId]) (FK_UsersToFlow_Flow)
         /// </summary>
+        [JsonIgnore] 
         public virtual Flow Flow { get; set; } // FK_UsersToFlow_Flow
 
         /// <summary>
         /// Parent User pointed by [UsersToFlow].([UserId]) (FK_UsersToFlow_Users)
         /// </summary>
+        [JsonIgnore] 
         public virtual User User { get; set; } // FK_UsersToFlow_Users
     }
 }

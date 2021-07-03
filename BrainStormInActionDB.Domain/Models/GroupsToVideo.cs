@@ -14,11 +14,13 @@ namespace BrainStormInActionDB.Domain.Models
         /// <summary>
         /// Parent Group pointed by [GroupsToVideo].([GroupId]) (FK_GroupsToVideo_Groups)
         /// </summary>
+        [JsonIgnore] 
         public virtual Group Group { get; set; } // FK_GroupsToVideo_Groups
 
         /// <summary>
         /// Parent Video pointed by [GroupsToVideo].([VideoId]) (FK_GroupsToVideo_Video)
         /// </summary>
+        [JsonIgnore] 
         public virtual Video Video { get; set; } // FK_GroupsToVideo_Video
     }
 }

@@ -18,23 +18,26 @@ namespace BrainStormInActionDB.Domain.Models
         /// <summary>
         /// Child UsersToFlows where [UsersToFlow].[UserId] point to this entity (FK_UsersToFlow_Users)
         /// </summary>
+        [JsonIgnore] 
         public virtual ICollection<UsersToFlow> UsersToFlows { get; set; } // UsersToFlow.FK_UsersToFlow_Users
 
         /// <summary>
         /// Child UsersToGroups where [UsersToGroup].[UserId] point to this entity (FK_UsersToGroup_Users)
         /// </summary>
+        [JsonIgnore] 
         public virtual ICollection<UsersToGroup> UsersToGroups { get; set; } // UsersToGroup.FK_UsersToGroup_Users
 
         /// <summary>
         /// Child UsersToVideos where [UsersToVideo].[UserId] point to this entity (FK_UsersToVideo_Users)
         /// </summary>
+        [JsonIgnore] 
         public virtual ICollection<UsersToVideo> UsersToVideos { get; set; } // UsersToVideo.FK_UsersToVideo_Users
 
-        public User()
-        {
-            UsersToFlows = new List<UsersToFlow>();
-            UsersToGroups = new List<UsersToGroup>();
-            UsersToVideos = new List<UsersToVideo>();
-        }
+        //public User()
+        //{
+        //    UsersToFlows = new List<UsersToFlow>();
+        //    UsersToGroups = new List<UsersToGroup>();
+        //    UsersToVideos = new List<UsersToVideo>();
+        //}
     }
 }

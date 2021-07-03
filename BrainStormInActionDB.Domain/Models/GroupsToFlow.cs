@@ -15,11 +15,13 @@ namespace BrainStormInActionDB.Domain.Models
         /// <summary>
         /// Parent Flow pointed by [GroupsToFlow].([FlowId]) (FK_GroupsToFlow_Flow)
         /// </summary>
+        [JsonIgnore] 
         public virtual Flow Flow { get; set; } // FK_GroupsToFlow_Flow
 
         /// <summary>
         /// Parent Group pointed by [GroupsToFlow].([GroupId]) (FK_GroupsToFlow_Groups)
         /// </summary>
+        [JsonIgnore] 
         public virtual Group Group { get; set; } // FK_GroupsToFlow_Groups
     }
 }

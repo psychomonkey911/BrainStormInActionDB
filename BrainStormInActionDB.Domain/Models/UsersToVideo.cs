@@ -15,11 +15,13 @@ namespace BrainStormInActionDB.Domain.Models
         /// <summary>
         /// Parent User pointed by [UsersToVideo].([UserId]) (FK_UsersToVideo_Users)
         /// </summary>
+        [JsonIgnore] 
         public virtual User User { get; set; } // FK_UsersToVideo_Users
 
         /// <summary>
         /// Parent Video pointed by [UsersToVideo].([VideoId]) (FK_UsersToVideo_Video)
         /// </summary>
+        [JsonIgnore] 
         public virtual Video Video { get; set; } // FK_UsersToVideo_Video
     }
 }
