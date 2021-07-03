@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace BrainStormInActionDB.Domain.Models
 {
+    // GroupsToVideo
     public class GroupsToVideo
     {
-        [JsonProperty("groupId")]
-        public int GroupId { get; set; }
+        public int GroupId { get; set; } // GroupId (Primary key)
+        public int VideoId { get; set; } // VideoId (Primary key)
+        public string Priority { get; set; } // Priority (Primary key) (length: 50)
 
-        [JsonProperty("videoId")]
-        public int VideoId { get; set; }
+        // Foreign keys
 
-        [JsonProperty("priority")]
-        public string Priority { get; set; }
+        /// <summary>
+        /// Parent Group pointed by [GroupsToVideo].([GroupId]) (FK_GroupsToVideo_Groups)
+        /// </summary>
+        public virtual Group Group { get; set; } // FK_GroupsToVideo_Groups
+
+        /// <summary>
+        /// Parent Video pointed by [GroupsToVideo].([VideoId]) (FK_GroupsToVideo_Video)
+        /// </summary>
+        public virtual Video Video { get; set; } // FK_GroupsToVideo_Video
     }
 }

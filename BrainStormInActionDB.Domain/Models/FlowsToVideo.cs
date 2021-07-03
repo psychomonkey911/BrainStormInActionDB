@@ -1,13 +1,19 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace BrainStormInActionDB.Domain.Models
 {
+    // FlowsToVideo
     public class FlowsToVideo
     {
-        [JsonProperty("flowId")]
-        public int FlowId { get; set; }
+        public int FlowId { get; set; } // FlowId (Primary key)
+        public int VideoId { get; set; } // VideoId (Primary key)
 
-        [JsonProperty("videoId")]
-        public int VideoId { get; set; }
+        // Foreign keys
+
+        /// <summary>
+        /// Parent Video pointed by [FlowsToVideo].([VideoId]) (FK_FlowsToVideo_Video)
+        /// </summary>
+        public virtual Video Video { get; set; } // FK_FlowsToVideo_Video
     }
 }
